@@ -19,3 +19,5 @@ pip install -r requirements.txt
 ```cd api```
 
 ```flask run```
+
+## Deployment frontend

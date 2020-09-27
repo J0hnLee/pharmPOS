@@ -1,0 +1,11 @@
+certifi==2020.6.20
+click==7.1.2
+Flask==1.1.2
+Flask-MySQL==1.5.1
+itsdangerous==1.1.0
+Jinja2==2.11.2
+MarkupSafe @ file:///Users/runner/miniforge3/conda-bld/markupsafe_1600368314248/work
+marshmallow==3.8.0
+PyMySQL==0.10.1
+python-dotenv==0.14.0
+Werkzeug==1.0.1
