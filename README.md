@@ -21,3 +21,14 @@ pip install -r requirements.txt
 ```flask run```
 
 ## Deployment frontend
+```cd react-flask-app```
+
+```npm start```
+
+
+範例:
+同時啟動frontend and backend
+每重新整理一次前端
+會重新去抓一次後端的資料(時間)
+
+參考:
