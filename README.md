@@ -13,6 +13,7 @@ pip install python-dotenv (for using the .flaskenv )
 自動部署ｍySQL 資料庫
 
 ## setup the envement
+
 pip install -r requirements.txt 
 
 ## Deployment backend
