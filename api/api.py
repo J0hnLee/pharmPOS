@@ -33,7 +33,6 @@ class Prescription(db.Model):
 
 
 
-
 @app.route('/time')
 def get_current_time():
     print(time.time())
