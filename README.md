@@ -8,11 +8,19 @@ pip install python-dotenv (for using the .flaskenv )
 
 ### api 
 為flask 框架下的後端
+測試版
+1. api.py 可以回傳時間
+
+```localhost:5000/time```
+2. restFulAPI.py 可做資料庫的CRUD (用postman測)
+```localhost:5000/pts```
 
 ### init_mysql(未完成)
-自動部署ｍySQL 資料庫
+```python setupData.py```
 
-## setup the envement
+自動部署ｍySQL 資料庫 and add dummy data to mySQL
+
+## setup the environment
 
 pip install -r requirements.txt 
 

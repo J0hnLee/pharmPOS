@@ -2,18 +2,18 @@ import os
 from flask import Flask
 from flask_restful import Resource, Api
 from flask_sqlalchemy import SQLAlchemy
+
 from flask_migrate import Migrate
 
 app = Flask(__name__)
-db = SQLAlchemy(app)
 api = Api(app)
 basedir = os.path.abspath(os.path.dirname(__file__))
 print(basedir)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'data.splite')
 app.config['SQLALCHEMY_TRACK_MODIFICATION'] = False
+db = SQLAlchemy(app)
+
 db.create_all()
-#migrate = Migrate(app=app,db=db)
-#migrate.init_app(app=app, db=db)
 
 ######################################
 class Prescription(db.Model):
@@ -74,7 +74,8 @@ class AllName(Resource):
         return [pt.json() for pt in pts]
 
 
-api.add_resource(patientNames, '/pt/<string:pName>')
+api.add_resource(patientNames, '/<string:pName>')
 api.add_resource(AllName, '/pts')
+
 if __name__ == '__main__':
     app.run(debug=True)
