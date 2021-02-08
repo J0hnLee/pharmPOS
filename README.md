@@ -31,7 +31,7 @@ pip install -r requirements.txt
 ```flask run```
 
 ## Deployment frontend
-```cd react-flask-app```
+```cd react-complete-guide```
 
 ```npm start```
 
