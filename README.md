@@ -12,7 +12,8 @@ pip install python-dotenv (for using the .flaskenv )
 1. api.py 可以回傳時間
 
 ```localhost:5000/time```
-2. restFulAPI.py 可做資料庫的CRUD (用postman測)
+
+2. restfulAPI.py 可做資料庫的CRUD (用postman測)
 ```localhost:5000/pts```
 
 ### init_mysql(未完成)
