@@ -17,6 +17,7 @@ pip install python-dotenv (for using the .flaskenv )
 ```localhost:5000/pts```
 
 ### init_mysql(未完成)
+第一步
 ```python setupData.py```
 
 自動部署ｍySQL 資料庫 and add dummy data to mySQL
@@ -28,6 +29,7 @@ pip install -r requirements.txt
 ## Deployment backend
 ```cd api```
 
+```python restfulAPI.py```
 ```flask run```
 
 ## Deployment frontend
