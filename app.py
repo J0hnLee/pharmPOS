@@ -6,6 +6,9 @@ db = pymysql.connect("localhost", "username", "password", "database")
 app = Flask(__name__)
 api = Api(app)
 
+
+
+
 @app.route('/')
 def someName():
     cursor = db.cursor()
