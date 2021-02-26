@@ -38,6 +38,7 @@ pip install -r requirements.txt
 ```npm start```
 
 
+
 範例:
 同時啟動frontend and backend
 每重新整理一次前端
