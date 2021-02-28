@@ -11,7 +11,6 @@ print(basedir)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'data.splite')
 app.config['SQLALCHEMY_TRACK_MODIFICATION'] = False
 db = SQLAlchemy(app)
-
 db.create_all()
 
 ######################################
