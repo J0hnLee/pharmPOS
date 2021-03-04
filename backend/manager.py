@@ -1,10 +1,12 @@
 import os
 import sys
+print(sys.path)
 import unittest
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
 from flask_restful_swagger_2 import Api
 from flask_restful_swagger_2 import swagger, Resource
+from flask_cors import CORS
 
 # import table of database
 from main import create_app,db
@@ -21,31 +23,24 @@ app = create_app(os.getenv('BOILERPLATE_ENV') or 'dev')
 app.app_context().push()
 api = Api(app,
     host="localhost:5000",
-    schemes=['http'],
-    #schemes=['https'],
-   # base_path='/dev',
+    #schemes=['http'],
+    schemes=['https'],
+    #base_path='/dev',
     security_definitions='security',
     security=[{'appKey': []}],
     api_version='0.01',
     api_spec_url='/api/swagger')
+CORS(app)
 
-#########
-# print(Prescription.patientName)
-# sample1 = Prescription(1,'kerker4')
-# sample2 = Prescription(2,'kerker3')
-#
-# print(sample1.id)
-# print(sample2.id)
-#
-# db.session.add_all([sample1])
-# ###
-# db.session.add(sample1)
-# ## db.section.add(sample2) ##
-#
-# db.session.commit()
 
-##########
+def auth(api_key, endpoint, method):
+    # Space for your fancy authentication. Return True if access is granted, otherwise False
+    # api_key is extracted from the url parameters (?api_key=foo)
+    # endpoint is the full swagger url (e.g. /some/{value}/endpoint)
+    # method is the HTTP method
+    return True
 
+swagger.auth = auth
 
 
 """setting database that can use command"""
@@ -77,16 +72,15 @@ class AllName(Resource):
         return [pt.json() for pt in pts]
 
 # redirect to swagger page
-
 @app.route('/')
 def index():
-    return """<head>
-    <meta http-equiv="refresh" content="0; url=https://petstore.swagger.io/?url=https://localhost:5000/api/swagger.json" />
-    </head>"""
+    return 'hello'
+    # return """<head>
+    # <meta http-equiv="refresh" content="0; url=https://petstore.swagger.io/?url=https://localhost:5000/api/swagger.json" />
+    # </head>"""
 
 #api.add_resource(patientNames, '/<string:pName>')
 api.add_resource(AllName, '/pts')
-
 
 
 if __name__ == '__main__':

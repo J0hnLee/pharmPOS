@@ -4,7 +4,7 @@ from .. import db
 class Prescription(db.Model):
     # define the database model
     __tablename__ = 'Prescriptions'
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True,autoincrement=True)
     # email = db.Column(db.String(255), unique=True, nullable=False)
     # registered_on = db.Column(db.DateTime, nullable=False)
     # admin = db.Column(db.Boolean, nullable=False, default=False)
@@ -30,11 +30,10 @@ class Prescription(db.Model):
 
 
 
-    def __init__(self,ID,patientName):
+    def __init__(self,patientName):
         #self.hospitalName = hospitalName
         #
         self.patientName = patientName
-        self.id=ID
         #self.patientAge = patientAge
 
     # def __init__(self, hospitalName, patientName, patientAge):
