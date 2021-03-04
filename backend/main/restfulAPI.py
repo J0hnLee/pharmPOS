@@ -5,11 +5,10 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_restful_swagger_2 import swagger, Resource
 from flask_cors import CORS
 
-
 ## import self-api function
-from .views.databaseInit import Prescription
-from .views.getTime import whatTime
-from .views.model import UserModel
+#from .views.databaseInit import Prescription
+from backend.main.views.getTime import whatTime
+from backend.main.views.model import UserModel
 #from .views.groupResource import  GroupResource
 
 import flask_bcrypt
@@ -37,17 +36,14 @@ api = Api(app,
 basedir = os.path.abspath(os.path.dirname(__file__))
 print(basedir)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'data.splite')
-app.config['SQLALCHEMY_TRACK_MODIFICATION'] = False
+app.config['SQLALCHEMY_TRACK_MODIFICATION'] = True
 db = SQLAlchemy(app)
 db.create_all()
-
-
 
 ######################################
 class Prescription(db.Model):
     # define the database model
     __tablename__ = 'Prescriptions'
-
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     # email = db.Column(db.String(255), unique=True, nullable=False)
     # registered_on = db.Column(db.DateTime, nullable=False)
@@ -57,20 +53,6 @@ class Prescription(db.Model):
     #password_hash = db.Column(db.String(100))
     # hospitalName = db.Column(db.Text)
     # patientAge = db.Column(db.Integer)
-
-    # @property
-    # def password(self):
-    #     raise AttributeError('password: write-only field')
-    #
-    # @password.setter
-    # def password(self, password):
-    #     self.password_hash = flask_bcrypt.generate_password_hash(password).decode('utf-8')
-    #
-    # def check_password(self, password):
-    #     return flask_bcrypt.check_password_hash(self.password_hash, password)
-    #
-    # def __repr__(self):
-    #     return "<User '{}'>".format(self.patientName)
 
 
 
@@ -94,7 +76,27 @@ class Prescription(db.Model):
     # def __repr__(self):
     #     return f"patient {self.patientName} is {self.patientAge} year/s old"
 
+#####################################
+prescription = Prescription('kerker1')
+db.session.add(prescription)
+db.session.commit()
+sample1 = Prescription('kerker4')
+sample2 = Prescription('kerker3')
 
+print(sample1.id)
+print(sample2.id)
+
+db.session.add_all([sample1, sample2])
+####
+## db.section.add(sample1) ##
+## db.section.add(sample2) ##
+
+db.session.commit()
+
+print(sample1.id)
+print(sample2.id)
+
+print(db)
 #####################################
 
 class patientNames(Resource):
@@ -120,15 +122,24 @@ class patientNames(Resource):
 
 
 
+from flask import Blueprint
+import time
+import os
+
 
 
 class AllName(Resource):
+    pass
     @swagger.doc({'tags': ['users'], 'description': 'Adds a user', 'parameters': [
         {'name': 'body', 'description': 'Request body', 'in': 'body', 'schema': UserModel, 'required': True, }],
         'responses': {'201': {'description': 'Created user', 'schema': UserModel,
             'headers': {'Location': {'type': 'string', 'description': 'Location of the new item'}},
             'examples': {'application/json': {'id': 1}}}}})
+
+
+
     def get(self):
+
         pts = Prescription.query.all()
         return [pt.json() for pt in pts]
 
@@ -144,6 +155,13 @@ def index():
 
 api.add_resource(patientNames, '/<string:pName>')
 api.add_resource(AllName, '/pts')
+whatTime = Blueprint('whatTime', __name__)
+
+@whatTime.route('/time')
+def get_current_time():
+    print(time.time())
+    print(time.asctime(time.localtime(time.time())))
+    return {'time': time.asctime(time.localtime(time.time()))}
 
 if __name__ == '__main__':
 
