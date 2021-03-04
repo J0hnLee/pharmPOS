@@ -7,8 +7,8 @@ from flask_cors import CORS
 
 ## import self-api function
 #from .views.databaseInit import Prescription
-from backend.main.views.getTime import whatTime
-from backend.main.views.model import UserModel
+from .views import getTime
+from .views import model
 #from .views.groupResource import  GroupResource
 
 import flask_bcrypt
@@ -22,7 +22,7 @@ def auth(api_key, endpoint, method):
     return True
 swagger.auth = auth
 
-app.register_blueprint(whatTime,url_prefix='/pages')
+app.register_blueprint(getTime.whatTime,url_prefix='/pages')
 api = Api(app,
     host="localhost:5000",
     schemes=['http'],
@@ -77,26 +77,26 @@ class Prescription(db.Model):
     #     return f"patient {self.patientName} is {self.patientAge} year/s old"
 
 #####################################
-prescription = Prescription('kerker1')
-db.session.add(prescription)
-db.session.commit()
-sample1 = Prescription('kerker4')
-sample2 = Prescription('kerker3')
+# prescription = Prescription('kerker1')
+# db.session.add(prescription)
+# db.session.commit()
+# sample1 = Prescription('kerker4')
+# sample2 = Prescription('kerker3')
+#
+# print(sample1.id)
+# print(sample2.id)
+#
+# db.session.add_all([sample1, sample2])
+# ####
+# ## db.section.add(sample1) ##
+# ## db.section.add(sample2) ##
+#
+# db.session.commit()
+#
+# print(sample1.id)
+# print(sample2.id)
 
-print(sample1.id)
-print(sample2.id)
-
-db.session.add_all([sample1, sample2])
-####
-## db.section.add(sample1) ##
-## db.section.add(sample2) ##
-
-db.session.commit()
-
-print(sample1.id)
-print(sample2.id)
-
-print(db)
+#print(db)
 #####################################
 
 class patientNames(Resource):
@@ -131,8 +131,8 @@ import os
 class AllName(Resource):
     pass
     @swagger.doc({'tags': ['users'], 'description': 'Adds a user', 'parameters': [
-        {'name': 'body', 'description': 'Request body', 'in': 'body', 'schema': UserModel, 'required': True, }],
-        'responses': {'201': {'description': 'Created user', 'schema': UserModel,
+        {'name': 'body', 'description': 'Request body', 'in': 'body', 'schema': model.UserModel, 'required': True, }],
+        'responses': {'201': {'description': 'Created user', 'schema': model.UserModel,
             'headers': {'Location': {'type': 'string', 'description': 'Location of the new item'}},
             'examples': {'application/json': {'id': 1}}}}})
 
@@ -157,7 +157,7 @@ api.add_resource(patientNames, '/<string:pName>')
 api.add_resource(AllName, '/pts')
 whatTime = Blueprint('whatTime', __name__)
 
-@whatTime.route('/time')
+@getTime.whatTime.route('/time')
 def get_current_time():
     print(time.time())
     print(time.asctime(time.localtime(time.time())))
