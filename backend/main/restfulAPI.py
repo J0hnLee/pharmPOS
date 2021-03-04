@@ -1,4 +1,4 @@
-import os
+import os, sys
 from flask import Flask,Blueprint
 from flask_restful_swagger_2 import Api
 from flask_sqlalchemy import SQLAlchemy
@@ -53,8 +53,6 @@ class Prescription(db.Model):
     #password_hash = db.Column(db.String(100))
     # hospitalName = db.Column(db.Text)
     # patientAge = db.Column(db.Integer)
-
-
 
     def __init__(self, patientName):
         #self.hospitalName = hospitalName
@@ -122,12 +120,6 @@ class patientNames(Resource):
 
 
 
-from flask import Blueprint
-import time
-import os
-
-
-
 class AllName(Resource):
     pass
     @swagger.doc({'tags': ['users'], 'description': 'Adds a user', 'parameters': [
@@ -164,5 +156,5 @@ def get_current_time():
     return {'time': time.asctime(time.localtime(time.time()))}
 
 if __name__ == '__main__':
-
+    print(sys.path)
     app.run(debug=True)

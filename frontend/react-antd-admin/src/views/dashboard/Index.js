@@ -11,15 +11,6 @@ class Index extends Component {
 				</div>
 				<div className="App">
 				<h1>處方系統</h1>
-				
-				{/* <h1>處方系統</h1>
-				<PrimarySearchAppBar />
-					<MediaControlCard />
-				<BasicTextFields autoComplete="true"/>
-				<MultilineTextFields />
-				< Person />
-		
-				<LayoutTextFields/> */}
 		
 			  </div>
 			</div>

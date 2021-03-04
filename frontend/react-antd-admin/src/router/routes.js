@@ -1,5 +1,5 @@
-import Dashboard from '../views/dashboard';
-import Icon from '../views/icon';
+import Dashboard from '../views/dashboard/Index';
+import Icon from '../views/icon/Index';
 import Error404 from '../views/error/Error404';
 import Error500 from '../views/error/Error500';
 import LineChart from '../views/chart/LineChart';
