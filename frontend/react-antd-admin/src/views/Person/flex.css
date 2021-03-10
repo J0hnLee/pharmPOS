@@ -1,0 +1,29 @@
+.flex {
+    display: flex;
+    height: 150px;
+    padding: 30px;
+    flex-wrap: wrap;
+    /* // 修改以下值試試看 flex-start | flex-end | center | space-between | space-around; */
+    justify-content: space-between;
+    
+    /* // 修改以下值試試看 flex-start | flex-end | center | space-between | space-around | stretch */
+    align-content: space-between;
+  }
+  
+  .item {
+    width: 25%;
+    height: 80px;
+    background-color: #f08bc3;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2rem;
+  }
+  
+  .flex-2 {
+    width: 40%;
+    height: 50px;
+    background-color: #f08bc3;
+  }
