@@ -1,23 +1,23 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+//import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import WebcamCapture from '../personInfo/imageCapture'
 import './flex.css'
-import Webcam from "react-webcam";
+//import Webcam from "react-webcam";
 
 
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    '& .MuiTextField-root': {
-      margin: theme.spacing(2),
-      width: '22ch',
-    },
-  },
-}));
+// const useStyles = makeStyles((theme) => ({
+//   root: {
+//     '& .MuiTextField-root': {
+//       margin: theme.spacing(2),
+//       width: '22ch',
+//     },
+//   },
+// }));
 
 export default function MultilineTextFields() {
-  const classes = useStyles();
+  //const classes = useStyles();
   const [value, setValue] = React.useState('Controlled');
 
   const handleChange = (event) => {

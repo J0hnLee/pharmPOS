@@ -4,8 +4,7 @@ print(sys.path)
 import unittest
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
-from flask_restful_swagger_2 import Api
-from flask_restful_swagger_2 import swagger, Resource
+from flask_restful_swagger_2 import Api,swagger, Resource
 from flask_cors import CORS
 
 # import table of database
@@ -21,6 +20,7 @@ from main.views.model import UserModel
 
 app = create_app(os.getenv('BOILERPLATE_ENV') or 'dev')
 app.app_context().push()
+CORS(app)
 api = Api(app,
     host="localhost:5000",
     #schemes=['http'],
@@ -30,7 +30,7 @@ api = Api(app,
     security=[{'appKey': []}],
     api_version='0.01',
     api_spec_url='/api/swagger')
-CORS(app)
+
 
 
 def auth(api_key, endpoint, method):
@@ -67,6 +67,7 @@ class AllName(Resource):
         'responses': {'201': {'description': 'Created user', 'schema': UserModel,
             'headers': {'Location': {'type': 'string', 'description': 'Location of the new item'}},
             'examples': {'application/json': {'id': 1}}}}})
+
     def get(self):
         pts = Prescription.query.all()
         return [pt.json() for pt in pts]
@@ -74,10 +75,9 @@ class AllName(Resource):
 # redirect to swagger page
 @app.route('/')
 def index():
-    return 'hello'
-    # return """<head>
-    # <meta http-equiv="refresh" content="0; url=https://petstore.swagger.io/?url=https://localhost:5000/api/swagger.json" />
-    # </head>"""
+    return """<head>
+    <meta http-equiv="refresh" content="0; url=http://petstore.swagger.io/?url=http://localhost:5000/api/swagger.json" />
+    </head>"""
 
 #api.add_resource(patientNames, '/<string:pName>')
 api.add_resource(AllName, '/pts')
