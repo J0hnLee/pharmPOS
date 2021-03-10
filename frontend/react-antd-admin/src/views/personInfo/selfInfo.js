@@ -1,6 +1,9 @@
 import React from 'react';
 import { makeStyles,useTheme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import WebcamCapture from './imageCapture'
+
+
 
 
 
@@ -112,6 +115,7 @@ export default function MultilineTextFields() {
           defaultValue="Default Value"
           variant="outlined"
         />
+
       </div>
     </form>
   );

@@ -167,6 +167,11 @@ export const menus = [
 		path: '/personInfo',
 		title: '個人信息',
 		icon: 'copyright'
+	},
+	{
+		path: '/VideoRecorder',
+		title: '個人信息',
+		icon: 'copyright'
 	}
 
 ];

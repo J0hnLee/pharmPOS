@@ -1,12 +1,17 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import WebcamCapture from '../personInfo/imageCapture'
+import './flex.css'
+import Webcam from "react-webcam";
+
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
     '& .MuiTextField-root': {
-      margin: theme.spacing(1),
-      width: '25ch',
+      margin: theme.spacing(2),
+      width: '22ch',
     },
   },
 }));
@@ -33,13 +38,13 @@ export default function MultilineTextFields() {
 
 
   return (
-    <form className={classes.root} noValidate autoComplete="off">
+    <form className = 'flex' noValidate autoComplete="off">
       <div>
         <TextField
           id="standard-multiline-flexible"
           label="姓名"
           multiline
-          rowsMax={4}
+          rowsMax={1}
           value={value}
           onChange={handleChange}
         />
@@ -78,17 +83,18 @@ export default function MultilineTextFields() {
           id="filled-multiline-static"
           label="過去病史"
           multiline
-          rows={4}
+          rows={1}
           defaultValue="Default Value"
           variant="filled"
         />
       </div>
+      
       <div>
         <TextField
           id="outlined-multiline-flexible"
           label="主訴＆ICD10"
           multiline
-          rowsMax={4}
+          rowsMax={1}
           value={value}
           onChange={handleChange}
           variant="outlined"
@@ -100,14 +106,18 @@ export default function MultilineTextFields() {
           multiline
           variant="outlined"
         />
+       
         <TextField
           id="outlined-multiline-static"
           label="備註"
           multiline
-          rows={4}
+          rows={1}
           defaultValue="Default Value"
           variant="outlined"
         />
+        <WebcamCapture className = 'flex-2'/>
+
+
       </div>
     </form>
   );
