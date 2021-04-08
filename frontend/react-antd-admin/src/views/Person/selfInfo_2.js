@@ -8,8 +8,8 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
   },
   textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
+    marginLeft: theme.spacing(100),
+    marginRight: theme.spacing(10),
     width: '25ch',
   },
 }));
@@ -23,7 +23,7 @@ export default function LayoutTextFields() {
         <TextField
           id="standard-full-width"
           label="Label"
-          style={{ margin: 8 }}
+          style={{ margin: 200 }}
           placeholder="Placeholder"
           helperText="Full width!"
           fullWidth
