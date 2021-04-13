@@ -4,25 +4,25 @@ import '@/assets/css/news';
 const { TabPane } = Tabs;
 const news = [
 	{
-		title: '【系统通知】该系统将于今晚凌晨2点到5点进行升级维护。',
+		title: '【系统公告】將於4/9販售黑絲綢口罩。',
 		createTime: '2018-04-19 20:00:00',
 		status: 0, //0==>未读，1==>已读
 		id: 0
 	},
 	{
-		title: '今晚12点整发大红包，先到先得!',
+		title: '今晚12点發红包，先到先得!',
 		createTime: '2018-06-10 00:00:00',
 		status: 0,
 		id: 1
 	},
 	{
-		title: '明天晚上0:00发布V3.0版本，请期待!',
+		title: '明天晚上0:00進貨，请期待!',
 		createTime: '2018-11-11 00:00:00',
 		status: 0,
 		id: 2
 	},
 	{
-		title: '本系统于2088年0:00:00下线！',
+		title: '本系统于2088年0:00:00！',
 		createTime: '2018-12-29 00:00:00',
 		status: 1,
 		id: 3
@@ -49,13 +49,13 @@ export default class News extends Component {
 		return (
 			<div className="shadow-radius">
 				<Tabs defaultActiveKey="1" onChange={this.handleChangeTab}>
-					<TabPane tab="未读消息" key="1">
+					<TabPane tab="未讀消息" key="1">
 						<List
 							loading={loading}
 							className="list-news"
 							footer={
 								<div>
-									<Button type="primary">全部标为已读</Button>
+									<Button type="primary">全部標為已讀</Button>
 								</div>
 							}
 							dataSource={dataSource}
@@ -65,12 +65,12 @@ export default class News extends Component {
 										<span style={{ color: '#1890ff', cursor: 'pointer' }}>{item.title}</span>
 									</div>
 									<div className="list-time">{item.createTime}</div>
-									<Button>标为已读</Button>
+									<Button>標為已讀</Button>
 								</List.Item>
 							)}
 						/>
 					</TabPane>
-					<TabPane tab="已读消息" key="2">
+					<TabPane tab="已讀消息" key="2">
 						<List
 							loading={loading}
 							className="list-news"

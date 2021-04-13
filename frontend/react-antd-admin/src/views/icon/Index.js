@@ -63,7 +63,7 @@ const Index = () => {
 	return (
 		<div className="shadow-radius">
 			<div className="public-title">
-				<h1>常用图标</h1>
+				<h1>常用圖表</h1>
 			</div>
 			<ul className="list">
 				{data.map(item => (
@@ -75,7 +75,7 @@ const Index = () => {
 			</ul>
 			<div className="public-title" style={{ border: 0,marginBottom:0 }}>
 				<h1>
-					更多图标请参考：
+					更多圖表可以參考：
 					<a target="_blank" rel="noopener noreferrer" href="https://ant.design/components/icon-cn/">
 						Icon
 					</a>

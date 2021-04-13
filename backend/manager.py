@@ -1,36 +1,43 @@
+from main import create_app, db
+from flask_restful_swagger_2 import Api,swagger, get_swagger_blueprint, swagger, Resource
+from main.views.model import UserModel
+from main.databaseModel.patientModel import Prescription
+from main.databaseModel.userModel import user
+from main.tasks.userInfo import get_time_resources
+from main.tasks.views import tasks_blueprints
+import flask_monitoringdashboard as dashboard
+from bson import json_util
+from flask_pymongo import PyMongo
+from flask_cors import CORS
+from flask_script import Manager
+from flask_migrate import Migrate, MigrateCommand
+import unittest
 import os
 import sys
 print(sys.path)
-import unittest
-from flask_migrate import Migrate, MigrateCommand
-from flask_script import Manager
-from flask_restful_swagger_2 import Api,swagger, Resource
-from flask_cors import CORS
+
 
 # import table of database
-from main import create_app,db
-from main.databaseModel.userModel import user
-from main.databaseModel.patientModel import Prescription
 
 # import manipulation function
 
-## import self-api function
-from main.views.getTime import whatTime
-from main.views.model import UserModel
+# import self-api function
 
 app = create_app(os.getenv('BOILERPLATE_ENV') or 'dev')
 app.app_context().push()
 CORS(app)
-api = Api(app,
-    host="localhost:5000",
-    #schemes=['http'],
-    schemes=['https'],
-    #base_path='/dev',
-    security_definitions='security',
-    security=[{'appKey': []}],
-    api_version='0.01',
-    api_spec_url='/api/swagger')
+dashboard.bind(app)
+app.config['DEBUG'] = True  # open debug mode
 
+api = Api(app,
+          host="localhost:5000",
+          # schemes=['http'],
+          schemes=['https'],
+          # base_path='/dev',
+          security_definitions='security',
+          security=[{'appKey': []}],
+          api_version='0.01',
+          api_spec_url='/api/swagger')
 
 
 def auth(api_key, endpoint, method):
@@ -40,13 +47,34 @@ def auth(api_key, endpoint, method):
     # method is the HTTP method
     return True
 
+
 swagger.auth = auth
+docs = []
+# Get time resources
+user_resources = get_time_resources()
+# Retrieve and save the swagger document object (do this for each set of resources).
+docs.append(user_resources.get_swagger_doc())
+
+# Register the blueprint for user resources
+app.register_blueprint(user_resources.blueprint, url_prefix='/pages')
+
+# Prepare a blueprint to server the combined list of swagger document objects and register it
+app.register_blueprint(get_swagger_blueprint(
+    docs, '/api/swagger', title='Example', api_version='1'))
+
+# using blueprint to add different page
+app.register_blueprint(tasks_blueprints, url_prefix='/tasks')
+
+# app.register_blueprint(whatTime,url_prefix='/pages')
+# open database instance
+mongo = PyMongo(app, uri="mongodb://localhost:27017/pharmPOS")
 
 
 """setting database that can use command"""
 manager = Manager(app)
 migrate = Migrate(app, db)
 manager.add_command('db', MigrateCommand)
+
 
 @manager.command
 def run():
@@ -61,26 +89,44 @@ def test():
         return 0
     return 1
 
-class AllName(Resource):
-    @swagger.doc({'tags': ['users'], 'description': 'Adds a user', 'parameters': [
-        {'name': 'body', 'description': 'Request body', 'in': 'body', 'schema': UserModel, 'required': True, }],
-        'responses': {'201': {'description': 'Created user', 'schema': UserModel,
-            'headers': {'Location': {'type': 'string', 'description': 'Location of the new item'}},
-            'examples': {'application/json': {'id': 1}}}}})
-
-    def get(self):
-        pts = Prescription.query.all()
-        return [pt.json() for pt in pts]
+# class AllName(Resource):
+#     @swagger.doc({'tags': ['users'], 'description': 'Adds a user', 'parameters': [
+#         {'name': 'body', 'description': 'Request body', 'in': 'body', 'schema': UserModel, 'required': True, }],
+#         'responses': {'201': {'description': 'Created user', 'schema': UserModel,
+#             'headers': {'Location': {'type': 'string', 'description': 'Location of the new item'}},
+#             'examples': {'application/json': {'id': 1}}}}})
+#
+#     def get(self):
+#         pts = Prescription.query.all()
+#         return [pt.json() for pt in pts]
 
 # redirect to swagger page
+
+@app.route('/user/<string:age>', methods=['GET'])
+def home_page(age):
+    age = str(30)
+    if age:
+        users = mongo.db.pP.find({"age": age})
+        print(age)
+        print(type(users))
+        for name in users:
+            last = json_util.dumps(name)
+        print(last)
+
+        return last
+
+    else:
+        return 'No user found!'
+
 @app.route('/')
 def index():
     return """<head>
     <meta http-equiv="refresh" content="0; url=http://petstore.swagger.io/?url=http://localhost:5000/api/swagger.json" />
     </head>"""
 
+
 #api.add_resource(patientNames, '/<string:pName>')
-api.add_resource(AllName, '/pts')
+#api.add_resource(AllName, '/pts')
 
 
 if __name__ == '__main__':

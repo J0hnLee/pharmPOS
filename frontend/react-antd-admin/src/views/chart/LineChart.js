@@ -6,7 +6,7 @@ const chartData = {
 	backgroundColor: '#fff',
 	title: {
 		top: 30,
-		text: '折线图',
+		text: '折線圖',
 		textStyle: {
 			fontWeight: 'normal',
 			fontSize: 16,
@@ -35,7 +35,7 @@ const chartData = {
 		}
 	},
 
-	// 图表
+	// 圖表
 	grid: {
 		top: 80,
 		left: '2%',
@@ -43,7 +43,7 @@ const chartData = {
 		bottom: '6%',
 		containLabel: true
 	},
-	// x轴
+	// x軸
 	xAxis: [
 		{
 			type: 'category', //分类

@@ -24,11 +24,11 @@ export const menus = [
 		children: [
 			{
 				path: '/form/basic',
-				title: '基本表单'
+				title: '基本表單'
 			},
 			{
 				path: '/form/editor',
-				title: '富文本'
+				title: 'editor'
 			},
 			{
 				path: '/form/markdown',
@@ -43,15 +43,15 @@ export const menus = [
 		children: [
 			{
 				path: '/menu/level',
-				title: '二级菜单',
+				title: '二級菜單',
 				children: [
 					{
 						path: '/menu/level/submenu-1',
-						title: '三级菜单1',
+						title: '三級菜單',
 					},
 					{
 						path: '/menu/level/submenu-2',
-						title: '三级菜单2'
+						title: '三級菜單_2'
 					}
 				]
 			}
@@ -64,7 +64,7 @@ export const menus = [
 		children: [
 			{
 				path: '/table/basic',
-				title: '基础表格'
+				title: 'basic表格'
 			},
 			{
 				path: '/table/edit',
@@ -78,43 +78,43 @@ export const menus = [
 	},
 	{
 		path: '/chart',
-		title: '图表',
+		title: '圖表',
 		icon: 'area-chart',
 		children: [
 			{
 				path: '/chart/line',
-				title: '折线图'
+				title: '折線圖'
 			},
 			{
 				path: '/chart/keyboard',
-				title: '键盘图表'
+				title: '鍵盤圖表'
 			},
 			{
 				path: '/chart/bar',
-				title: '柱状图'
+				title: '柱狀圖'
 			},
 			{
 				path: '/chart/pie',
-				title: '饼图'
+				title: '餅圖'
 			},
 			{
 				path: '/chart/mixin',
-				title: '混合图表'
+				title: '混合圖表'
 			}
 		]
 	},
 	{
 		path: '/control',
-		title: '控件',
+		title: '控制區',
 		icon: 'control',
 		children: [
 			{
 				path: '/control/tree',
-				title: '树形控件'
+				title: '樹狀控制區'
 			},
 			{
 				path: '/control/select',
-				title: '选择器'
+				title: '選擇器'
 			},
 			{
 				path: '/control/other',
@@ -124,17 +124,17 @@ export const menus = [
 	},
 	{
 		path: '/permission',
-		title: '权限测试',
+		title: '權限測試',
 		icon: 'safety-certificate',
 		children: [
 			{
 				path: '/permission/toggle',
-				title: '权限切换',
+				title: '權限切換',
 				permission: 1
 			},
 			{
 				path: '/permission/intercept',
-				title: '路由拦截'
+				title: '路由攔截'
 			}
 		]
 	},
@@ -145,7 +145,7 @@ export const menus = [
 	},
 	{
 		path: '/error',
-		title: '错误页面',
+		title: '錯誤訊息',
 		icon: 'switcher',
 		children: [
 			{
@@ -160,17 +160,22 @@ export const menus = [
 	},
 	{
 		path: '/about',
-		title: '关于',
+		title: '關於',
 		icon: 'copyright'
 	},
 	{
 		path: '/personInfo',
-		title: '個人信息',
+		title: '處方系統',
 		icon: 'copyright'
 	},
 	{
 		path: '/VideoRecorder',
 		title: '個人信息',
+		icon: 'copyright'
+	},
+	{
+		path: '/connectBackend',
+		title: '後端接口',
 		icon: 'copyright'
 	}
 

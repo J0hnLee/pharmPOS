@@ -4,7 +4,7 @@ from flask_restful_swagger_2 import Api
 from flask_sqlalchemy import SQLAlchemy
 from flask_restful_swagger_2 import swagger, Resource
 from flask_cors import CORS
-
+import time
 ## import self-api function
 #from .views.databaseInit import Prescription
 from .views import getTime

@@ -26,10 +26,12 @@ import Person from '../views/Person/Person';
 import BasicTextFields from '../views/Person/calendar';
 import MultilineTextFields from '../views/Person/selfInfo';
 import LayoutTextFields from '../views/Person/selfInfo_2';
+import ConnectBackend from '../views/connectBackend/connectBackend'
 //import VideoExample from '../views/VideoRecorder/imageCapture'
 //import PrimarySearchAppBar from '../views/Person/searchBar';
 //import MultilineTextFields from '../views/personInfo/selfInfo';
 //import MediaControlCard from '../Person/imageMusic';
+
 
 export const routes = [
 	{ path: '/dashboard', component: Dashboard },
@@ -59,5 +61,7 @@ export const routes = [
 	{ path: '/Person', component: Person },
 	{ path: '/calendar', component: BasicTextFields },
 	{ path: '/selfInfo_2', component: LayoutTextFields },
-	{ path: '/personInfo', component: MultilineTextFields }
+	{ path: '/personInfo', component: MultilineTextFields },
+	{ path: '/connectBackend', component: ConnectBackend }
+
 ];

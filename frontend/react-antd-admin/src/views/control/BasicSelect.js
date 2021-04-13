@@ -4,50 +4,50 @@ import { Select, Row, Col, TreeSelect } from 'antd';
 const { Option } = Select;
 const treeData = [
 	{
-		title: '广东省',
-		key: '广东省',
+		title: '嬰品',
+		key: '嬰品',
 		value: '440000',
 		children: [
 			{
-				title: '深圳市',
-				value: '深圳市',
+				title: '奶嘴',
+				value: '奶嘴',
 				key: '440300',
 				children: [
 					{
-						title: '福田区',
-						value: '福田区',
+						title: 'chicco',
+						value: 'chicco',
 						key: '440304'
 					},
 					{
-						title: '南区区',
-						value: '南区区',
+						title: 'mamaway',
+						value: 'mamaway',
 						key: '440305'
 					},
 					{
-						title: '宝安区',
-						value: '宝安区',
+						title: '貝親',
+						value: '貝親',
 						key: '440306'
 					}
 				]
 			},
 			{
-				title: '广州市',
-				value: '广州市',
+				title: 'test1',
+				value: 'test1',
 				key: '440100',
 				children: [
 					{
-						title: '荔湾区',
-						value: '荔湾区',
+						title: 'test2',
+						value: 'test2',
 						key: '440103'
 					},
 					{
-						title: '越秀区',
-						value: '越秀区',
+						title: 'test3',
+						value: 'test3',
 						key: '440104'
 					},
 					{
-						title: '海珠区',
-						value: '海珠区',
+						title: 'test4',
+						value: 'test4',
 						key: '440105'
 					}
 				]
@@ -55,23 +55,23 @@ const treeData = [
 		]
 	},
 	{
-		title: '湖南省',
-		value: '湖南省',
+		title: 'test5',
+		value: 'test5',
 		key: '430000',
 		children: [
 			{
-				title: '长沙市',
-				value: '长沙市',
+				title: 'test6',
+				value: 'test6',
 				key: '430100'
 			},
 			{
-				title: '株洲市',
-				value: '株洲市',
+				title: 'test7',
+				value: 'test7',
 				key: '430200'
 			},
 			{
-				title: '湘潭市',
-				value: '湘潭市',
+				title: 'test8',
+				value: 'test8',
 				key: '430300'
 			}
 		]
@@ -107,11 +107,11 @@ const BasicSelect = () => {
 		<div className="shadow-radius">
 			<Row gutter={16}>
 				<Col span={12} offset={6}>
-					<h1 style={styles}>多选框</h1>
+					<h1 style={styles}>多選框</h1>
 					<SelectDemo />
 				</Col>
 				<Col span={12} offset={6}>
-					<h1 style={styles}>树选择框</h1>
+					<h1 style={styles}>樹狀選擇框</h1>
 					<SelectTreeDemo />
 				</Col>
 			</Row>

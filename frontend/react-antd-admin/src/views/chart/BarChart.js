@@ -5,7 +5,7 @@ const chartData = {
 	backgroundColor: '#fff',
 	title: {
 		top: 30,
-		text: '柱状图',
+		text: '柱狀圖',
 		textStyle: {
 			fontWeight: 'normal',
 			fontSize: 16,
@@ -18,7 +18,7 @@ const chartData = {
 	},
 	// tab
 	legend: {
-		data: ['蒸发量', '降水量'],
+		data: ['蒸發量', '降水量'],
 		right: '2%',
 		top: 20
 	},
@@ -32,7 +32,7 @@ const chartData = {
 	// x轴
 	xAxis: [
 		{
-			type: 'category', //分类
+			type: 'category', //分類
 			data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
 		}
 	],
@@ -46,7 +46,7 @@ const chartData = {
 	],
 	series: [
 		{
-			name: '蒸发量',
+			name: '蒸發量',
 			type: 'bar',
 			data: [8.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3],
 			markPoint: {

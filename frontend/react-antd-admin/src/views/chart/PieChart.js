@@ -5,7 +5,7 @@ const chartData = {
 	backgroundColor: '#fff',
 	title: {
 		top: 30,
-		text: '饼图',
+		text: '餅圖',
 		textStyle: {
 			fontWeight: 'normal',
 			fontSize: 16,
@@ -21,16 +21,16 @@ const chartData = {
 	legend: {
 		orient: 'vertical',
 		x: 20,
-		data: ['电费', '水费', '物业费', '管理费', '停车费'],
+		data: ['電費', '水費', '人事成本', '管銷', '進貨成本'],
 		top: 20
 	},
 	series: [
 		{
-			name: '费用支出',
+			name: '費用支出',
 			type: 'pie',
 			radius: '55%',
 			center: ['50%', '60%'],
-			data: [{ value: 100, name: '电费' }, { value: 50, name: '水费' }, { value: 224, name: '物业费' }, { value: 60, name: '管理费' }, { value: 800, name: '停车费' }]
+			data: [{ value: 100, name: '電費' }, { value: 50, name: '水費' }, { value: 224, name: '人事成本' }, { value: 60, name: '管銷' }, { value: 800, name: '進貨成本' }]
 		}
 	]
 };

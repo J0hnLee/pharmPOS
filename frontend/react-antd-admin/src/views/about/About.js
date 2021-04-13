@@ -4,10 +4,10 @@ const About = props => {
 	return (
 		<div className="shadow-radius">
 			<h1 style={styles.title}>简介</h1>
-			<p>React-Antd-Admin，一个 JavaScript 应用，项目由业界最优秀的 React 应用开发工具 create-react-app 初始化创建， 搭配 Antd 开箱即用的高质量 React 组件，非常适合后台产品。</p>
-			<p>React-Antd-Admin 同时也是个很好的前端脚手架学习示例，如果你在学习 React 或即将学习 React，它应该可以做为教程给你一些帮助。如果你准备使用 React 全家桶开发应用，它能够快速给你提供项目脚手架，为你节省前期部分工作。 让我们一起享受整个 React 生态圈和工具链带来的愉悦开发体验。</p>
-			<p>在开始之前，推荐先学习 React、 ES2015、ES6、Node.js、Webpack 等知识，并正确安装和配置了 Node.js 环境。</p>
-			<h1 style={styles.title}>技术栈</h1>
+			<p>React-Antd-Admin，一個 JavaScript 應用，項目由業界最優秀的 React 應用開發工具 create-react-app 初始化創建， 搭配 Antd 開箱即用的高質量 React 組件，非常適合後台產品。 </p>
+			<p>React-Antd-Admin 同時也是個很好的前端腳手架學習示例，如果你在學習 React 或即將學習 React，它應該可以做為教程給你一些幫助。如果你準備使用 React 全家桶開發應用，它能夠快速給你提供項目腳手架，為你節省前期部分工作。讓我們一起享受整個 React 生態圈和工具鏈帶來的愉悅開發體驗。 </p>
+			<p>在開始之前，推薦先學習 React、 ES2015、ES6、Node.js、Webpack 等知識，並正確安裝和配置了 Node.js 環境。 </p>
+			<h1 style={styles.title}>技術論壇</h1>
 			<ul style={styles.list}>
 				<li>
 					<a href="https://facebook.github.io/create-react-app/docs/getting-started" target="_blank" rel="noopener noreferrer">
@@ -54,11 +54,11 @@ const About = props => {
 			<ul style={styles.list}>
 				<li>
 					<a href="https://github.com/chenjun1127/react-antd-manager" target="_blank" rel="noopener noreferrer">
-						Github源码
+						Github
 					</a>
 				</li>
 			</ul>
-			<h1 style={styles.title}>致谢</h1>
+			<h1 style={styles.title}>thanks</h1>
 			<ul style={styles.list}>
 				<li>
 					<a href="https://facebook.github.io/create-react-app/docs/getting-started" target="_blank" rel="noopener noreferrer">
@@ -77,7 +77,7 @@ const About = props => {
 				</li>
 			</ul>
 			<p>
-				欢迎{' '}
+				welcome{' '}
 				<a href="https://github.com/chenjun1127/react-antd-manager" target="_blank" rel="noopener noreferrer">
 					star
 				</a>{' '}
