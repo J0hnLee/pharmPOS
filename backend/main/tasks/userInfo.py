@@ -17,6 +17,8 @@ class timeResource(Resource):
         print(time.asctime(time.localtime(time.time())))
         return {'time': time.asctime(time.localtime(time.time()))}
 
+    def post(self):
+        pass
 
 def get_time_resources():
     """

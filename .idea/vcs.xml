@@ -3,5 +3,6 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/react-antd-admin" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/refInfo/Flask-streaming-Pedestrians-detection-using-python-opencv-" vcs="Git" />
   </component>
 </project>

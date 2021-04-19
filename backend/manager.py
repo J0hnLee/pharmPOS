@@ -29,16 +29,6 @@ CORS(app)
 dashboard.bind(app)
 app.config['DEBUG'] = True  # open debug mode
 
-api = Api(app,
-          host="localhost:5000",
-          # schemes=['http'],
-          schemes=['https'],
-          # base_path='/dev',
-          security_definitions='security',
-          security=[{'appKey': []}],
-          api_version='0.01',
-          api_spec_url='/api/swagger')
-
 
 def auth(api_key, endpoint, method):
     # Space for your fancy authentication. Return True if access is granted, otherwise False
@@ -47,7 +37,7 @@ def auth(api_key, endpoint, method):
     # method is the HTTP method
     return True
 
-
+# project seperate to 3 parts
 swagger.auth = auth
 docs = []
 # Get time resources
@@ -55,6 +45,9 @@ user_resources = get_time_resources()
 # Retrieve and save the swagger document object (do this for each set of resources).
 docs.append(user_resources.get_swagger_doc())
 
+'''
+How to use blueprint with swagger
+'''
 # Register the blueprint for user resources
 app.register_blueprint(user_resources.blueprint, url_prefix='/pages')
 
@@ -119,7 +112,7 @@ def home_page(age):
         return 'No user found!'
 
 @app.route('/')
-def index():
+def new_page():
     return """<head>
     <meta http-equiv="refresh" content="0; url=http://petstore.swagger.io/?url=http://localhost:5000/api/swagger.json" />
     </head>"""

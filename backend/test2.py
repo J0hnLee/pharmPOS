@@ -7,7 +7,7 @@ from .main.tasks.views import tasks_blueprints
 from .main.tasks.userInfo import get_time_resources
 from flask_restful_swagger_2 import swagger, get_swagger_blueprint
 
-
+# can be delete
 app = Flask(__name__, template_folder='../templates')
 CORS(app)
 dashboard.bind(app)
@@ -23,13 +23,11 @@ docs=[]
 user_resources = get_time_resources()
 # Retrieve and save the swagger document object (do this for each set of resources).
 docs.append(user_resources.get_swagger_doc())
-
 # Register the blueprint for user resources
 app.register_blueprint(user_resources.blueprint,url_prefix='/pages')
 
 # Prepare a blueprint to server the combined list of swagger document objects and register it
 app.register_blueprint(get_swagger_blueprint(docs, '/api/swagger', title='Example', api_version='1'))
-
 # using blueprint to add different page
 app.register_blueprint(tasks_blueprints, url_prefix='/tasks')
 #app.register_blueprint(whatTime,url_prefix='/pages')
