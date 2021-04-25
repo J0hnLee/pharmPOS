@@ -1,6 +1,5 @@
 from api import db, Prescription
 
-
 # CREATES ALL THE TABLES Model--> Db table
 db.create_all()
 

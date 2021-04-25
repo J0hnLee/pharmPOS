@@ -1,5 +1,5 @@
 from api import db, Prescription
-
+#can be delete
 ##CREATE##
 prescription = Prescription('亞東','kerker1','25')
 db.session.add(prescription)

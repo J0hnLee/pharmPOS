@@ -49,4 +49,8 @@ pip install -r requirements.txt
 每重新整理一次前端
 會重新去抓一次後端的資料(時間)
 
+
+## Authenticate:
+使用JWT 機制，在tasks 的autientication內，通過username,password後，可獲得JWT token進行資料存取
+
 參考:

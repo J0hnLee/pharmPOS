@@ -7,5 +7,11 @@
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/api/data.splite</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="flasks_user_main" uuid="a37710a9-06b3-4e48-a494-0983a9beb2ce">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/backend/main/flasks_user_main.db</jdbc-url>
+    </data-source>
   </component>
 </project>

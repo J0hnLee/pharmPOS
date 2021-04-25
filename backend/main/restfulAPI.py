@@ -45,56 +45,21 @@ class Prescription(db.Model):
     # define the database model
     __tablename__ = 'Prescriptions'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    # email = db.Column(db.String(255), unique=True, nullable=False)
-    # registered_on = db.Column(db.DateTime, nullable=False)
-    # admin = db.Column(db.Boolean, nullable=False, default=False)
-    # public_id = db.Column(db.String(100), unique=True)
     patientName = db.Column(db.Text, unique=True)
-    #password_hash = db.Column(db.String(100))
-    # hospitalName = db.Column(db.Text)
-    # patientAge = db.Column(db.Integer)
+
 
     def __init__(self, patientName):
         #self.hospitalName = hospitalName
         self.patientName = patientName
         #self.patientAge = patientAge
 
-    # def __init__(self, hospitalName, patientName, patientAge):
-    #     self.hospitalName = hospitalName
-    #     self.patientName = patientName
-    #     self.patientAge = patientAge
 
-    # def json(self):
-    #     return {'Hospital': self.hospitalName, 'PatientName': self.patientName, 'Age': self.patientAge}
-    #
     def json(self):
         return {'PatientName': self.patientName}
 
 
-    # def __repr__(self):
-    #     return f"patient {self.patientName} is {self.patientAge} year/s old"
+    
 
-#####################################
-# prescription = Prescription('kerker1')
-# db.session.add(prescription)
-# db.session.commit()
-# sample1 = Prescription('kerker4')
-# sample2 = Prescription('kerker3')
-#
-# print(sample1.id)
-# print(sample2.id)
-#
-# db.session.add_all([sample1, sample2])
-# ####
-# ## db.section.add(sample1) ##
-# ## db.section.add(sample2) ##
-#
-# db.session.commit()
-#
-# print(sample1.id)
-# print(sample2.id)
-
-#print(db)
 #####################################
 
 class patientNames(Resource):
